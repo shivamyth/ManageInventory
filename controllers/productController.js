@@ -6,7 +6,6 @@ const Product = require('../models/products');
 
 module.exports.createProduct = async function (req, res) {
     try {
-        console.log(req.body);
         let result = await Product.create({
             _id: new mongoose.Types.ObjectId(),
             name: req.body.name,
@@ -14,7 +13,6 @@ module.exports.createProduct = async function (req, res) {
         });
         // Saving result 
         result.save();
-        console.log(result);
         var ans = {
             name:result.name,
             quantity:result.quantity
